@@ -114,14 +114,13 @@ const featuredProject = projects[0]!;
 			.sectionTitle {
 				font-weight: 700;
 				font-size: var(--f-u8);
-				margin-top: 4rem;
-				margin-bottom: 2rem;
+				margin-top: 2rem;
 			}
 
 			.roles {
 				display: flex;
 				flex-wrap: wrap;
-				gap: 0.5em;
+				gap: 0.25em;
 				font-size: var(--f-d1);
 			}
 
@@ -132,22 +131,22 @@ const featuredProject = projects[0]!;
 				font-weight: 900;
 				color: var(--t-bg);
 				background-color: var(--t-fg);
-				padding: 0.25em 0.5em;
+				padding: 0.25em 0.36em;
 				z-index: 2;
 			}
 
 			@media (min-width: 750px) {
 				.role {
-					font-size: var(--f-u3);
+					font-size: var(--f-u1);
 				}
 			}
 
 			.role:nth-of-type(1) .invert {
-				background-color: var(--c-pink);
+				background-color: var(--c-yellow);
 			}
 
 			.role:nth-of-type(2) .invert {
-				background-color: var(--c-blue);
+				background-color: var(--c-pink);
 			}
 
 			.role:nth-of-type(3) .invert {
@@ -242,9 +241,13 @@ const featuredProject = projects[0]!;
 		<main class="wrapper">
 			<div class="grid">
 				<div class="section">
-					<h3 class="sectionTitle">A propos</h3>
+					<h3 class="sectionTitle">Alice Pinto</h3>
+					<div class="roles">
+						<span class="role">👩‍💻 Développeuse indépendante <span class="invert">👩‍💻 Développeuse indépendante</span></span>
+						<span class="role">✏️ Artiste-Auteure <span class="invert">✏️ Artiste-Auteure</span></span>
+					</div>
 					<p class="bio">
-						Je suis une développeuse indépendante. [A compléter]
+						Plus jeune je faisais des jeux sur RPG Maker, aujourd'hui, je me suis lancée dans l'aventure indépendante et je développe un metroidvania.
 					</p>
 					<p>
 						<a href="/about">Lire plus</a>

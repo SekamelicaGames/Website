@@ -7,45 +7,77 @@ import Nav from '../components/Nav.astro';
 <html lang="fr">
 	<head>
 		<MainHead
-		title="Sekamelica Games | A propos"
-		description="A propos de moi" />
+		title="Sekamelica Games | Biographie"
+		description="Biographie d'Alice Pinto" />
 		<style>
-			.heroImg {
-				max-height: 24rem;
-				object-fit: cover;
-				overflow: hidden;
-			}
-
-			.heroImg img {
-				width: 100%;
-			}
-
 			.bio {
 				font-size: var(--f-u1);
 				line-height: 2;
-				margin-top: 4em;
+				width: 80%;
+				margin-right: 20%;
+			}
+
+			.name
+			{
+				margin: 0;
 			}
 
 			.wrapper.bio {
 				max-width: 50em;
+			}
+
+			.description
+			{
+				font-size:  var(--f-d2);
+			}
+
+			.grid {
+				margin-top: 4em;
+				display: grid;
+				grid-gap: 2rem;
+				grid-template-columns: 2fr 1fr;
 			}
 		</style>
 	</head>
 	<body>
 		<Nav />
 		<div class="wrapper">
-			<h1>Alice Pinto</h1>
-			<div class="heroImg">
-				<img
-					width="1400"
-					height="350"
-					src="/assets/mesh-gradient.jpg"
-				/>
-			</div>
-			<div class="bio wrapper">
-				<p>
-					Je suis une développeuse indépendante. [A compléter]
-				</p>
+			<div class="grid">
+				<div class="bio wrapper">
+						<h2 class="name">Alice Pinto - Biographie</h2>
+						<h6>Aujourd'hui</h6>
+						<p class="description"> Je suis une développeuse indépendante artiste-auteure qui travaille actuellement sur un metroidvania. <br>
+							Je suis aussi disponible pour faire des prestations de développement sur Unity pour d'autres studios et partager mon expertise 
+							(architecture de projet, programmation gameplay, tools, shaders, et optimisation). <br>
+							Vous pouvez entrer en contact avec moi <a href="/about/">ici</a> si vous souhaitez discuter de votre projet !
+						</p>
+						<h6>Jeunesse - RPG Maker et les premiers langages de programmation</h6>
+							<p class="description">J'ai commencé le développement de jeux dans les années 2010 avec RPG Maker qui a changé le monde des possibles pour moi,
+								et j'en ai fait durant des années. Puis j'ai appris quelques bases de C et C# mais j'ai fini par me diriger vers le développement web avec le javascript qui
+								m'a permis de faire quelques petits jeux et mieux comprendre le développement, avant de me remettre au C# avec Unity quand j'ai commencé mes études supérieures en
+								ingénierie informatique.
+							</p>
+						<h6>Fin d'études - Jams et petits jeux sur itch.io</h6>
+							<p class="description"> Dans les années 2017-2019 (coincidant avec mes dernières années d'études, mon master à l'ENJMIN) j'ai sorti de nombreux petits jeux sur itch.io,
+								 comme <a href="https://sekamelica.itch.io/slug-life">Slug Life</a> ou <a href="https://sekamelica.itch.io/reaktor">REAKTOR</a>. <br>
+								Je réfléchissais beaucoup dans mes jeux au rapport à la création et à l'art, à la santé mentale, à l'identité queer, et à la manière de transmettre des émotions via l'architecture, notamment inspirée par l'architecture brutaliste. <br>
+								Je me faisais alors la réflexion que beaucoup de ces jeux, beaucoup des jeux queer, étaient souvent des petits jeux, souvent narratifs, souvent des visual novel.
+								Et le souhait que j'ai aujourd'hui c'est de faire autre chose, des jeux plus long, plus ambitieux techniquement, plus orienté autour du gameplay, mais toujours traversés par ces mêmes thèmes.
+							</p>
+						<h6>Monde du travail - Kalank puis l'aventure indépendante</h6>
+							<p class="description"> De 2019 à 2022 j'ai travaillé chez Kalank. <br>
+								J'y ai fait beaucoup de développement mobile (Android et iOS) et réalité augmentée, le tout souvent sur Unity, ce qui nécessitait un effort important d'optimisation. <br>
+								Nous avons ainsi shippé  <a href="https://kalank.fr/fr/tokotoko/">Tokotoko</a> au nom de Kalank, mais aussi de nombreux autres jeux pour des clients du studio. <br>
+								Outre les jeux mobiles j'ai également fait de la programmation gameplay et shaders pour un jeu sorti sur consoles lors d'une prestation. <br>
+								Et hors développement, je communiquais avec l'équipe pour améliorer la communication et les outils, j'encadrais de supers stagiaires et apprentis,
+								prenait le temps de rédiger de la bonne documentation et de bons tutoriels, et essayait de trouver des manières d'améliorer nos méthodes de travail et d'organisation en équipe.
+								<br>
+								<br>
+								Fin 2022, je partais cependant de chez Kalank pour me consacrer à de nouveaux projets et être développeuse indépendante. <br>
+								Je me consacre ainsi notamment au développement de mon metroidvania, et sous statut artiste-auteur j'effectue des prestations de développement pour d'autres studios.
+							</p>
+				</div>
+				<img src="/assets/about/alice_pinto_photo.png" width="300px" height="300px">
 			</div>
 		</div>
 		<Footer />
