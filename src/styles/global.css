@@ -9,6 +9,10 @@
 	--c-orange: #ffb7a3;
 	--c-yellow: #ffdace;
 	--c-white: #fff;
+	--c-red: rgb(255, 0, 0);
+	--c-navbackgroundcolor: rgb(255, 226, 146);
+	--c-navlinkcolor: rgb(0, 0, 0);
+	--c-background: rgb(255, 251, 190);
 
 	/* Fonts */
 	--f-u18: 11.390625em;
@@ -51,7 +55,11 @@
 	--t-fg: var(--c-black);
 	--t-bg: var(--c-white);
 	--t-subdue: var(--c-gray);
-	--t-active: var(--c-blue);
+	--t-active: var(--c-red);
+}
+
+html {
+	background-color: var(--c-background);
 }
 
 body {

@@ -7,14 +7,19 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 import type { Project } from '../types';
 
 // Data Fetching: List all Markdown posts in the repo.
-const projects = await Astro.glob<Project>('./project/**/*.md');
+const projects = (await Astro.glob<Project>('./project/**/*.md'))
+	.filter(({ frontmatter }) => !!frontmatter.orderId)
+	.sort(
+		(a, b) =>
+		a.frontmatter.orderId - b.frontmatter.orderId
+	);
 const featuredProject = projects[0]!;
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
-<html lang="fr">
+<html lang="fr" >
 	<head>
 		<MainHead
 			title="Sekamelica Games"
@@ -102,7 +107,7 @@ const featuredProject = projects[0]!;
 
 			@media (min-width: 1200px) {
 				.grid {
-					grid-template-columns: 2fr 1fr;
+					grid-template-columns: 1fr 2.5fr;
 				}
 			}
 
@@ -198,11 +203,21 @@ const featuredProject = projects[0]!;
 				text-align: center;
 				margin-top: 2em;
 			}
+
+			.projectgrid {
+				display: grid;
+				grid-gap: 3rem;
+				grid-template-rows: auto;
+			}
+
+			.projectcard 
+			{
+			}
 		</style>
 	</head>
 	<body>
 		<Nav />
-		<header class="hero">
+		<!--<header class="hero">
 			<img
 				width="1600"
 				height="1131"
@@ -220,19 +235,12 @@ const featuredProject = projects[0]!;
 					<span class="role">👩‍💻 Developer <span class="invert">👩‍💻 Developer</span></span>
 					<span class="role">🎤 Speaker <span class="invert">🎤 Speaker</span></span>
 					<span class="role">✏️ Writer <span class="invert">✏️ Writer</span></span>
-				</div>-->
+				</div>
 				<p class="desc">Développeuse polyvalente (Moteur, tech-art, gameplay, tools) et spécialiste Unity (+ de 6 ans d'expérience)</p>
 			</div>
-		</header>
+		</header> -->
 		<main class="wrapper">
 			<div class="grid">
-				<div class="section">
-					<h3 class="sectionTitle">Sélection des projets</h3>
-					<PortfolioPreview project={featuredProject} />
-					<div class="buttonContainer">
-						<a href="/projects/" class="button">Voir tout</a>
-					</div>
-				</div>
 				<div class="section">
 					<h3 class="sectionTitle">A propos</h3>
 					<p class="bio">
@@ -242,8 +250,21 @@ const featuredProject = projects[0]!;
 						<a href="/about">Lire plus</a>
 					</p>
 				</div>
+				<div class="section">
+					<div class="projectgrid">
+						{projects.map((project) => <div class="projectcard"><PortfolioPreview project={project} /></div>)}
+					</div>
+
+					<!-- 
+					<h3 class="sectionTitle">Sélection des projets</h3>
+					<PortfolioPreview project={featuredProject} />
+					<div class="buttonContainer">
+						<a href="/projects/" class="button">Voir tout</a>
+					</div>-->
+				</div>
 			</div>
 		</main>
+		
 		<Footer />
 	</body>
 </html>

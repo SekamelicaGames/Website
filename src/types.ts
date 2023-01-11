@@ -5,4 +5,5 @@ export interface Project {
 	publishDate: string;
 	tags: string[];
 	img: string;
+	orderId: number;
 }
