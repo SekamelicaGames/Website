@@ -47,12 +47,13 @@ const { content } = Astro.props;
 				color: var(--c-pink);
 			}
 
+			/*
 			.title {
 				font-size: var(--f-u10);
 				font-weight: 900;
 				text-transform: uppercase;
 				letter-spacing: 0.0625em;
-			}
+			}*/
 
 			.leadIn {
 				padding-top: 4em;
@@ -83,10 +84,22 @@ const { content } = Astro.props;
 				text-align: center;
 				margin-top: 3rem;
 			}
+
+			.bio {
+				width: 80%;
+				margin-right: 20%;
+			}
+
+			.grid {
+				display: grid;
+				grid-gap: 0rem;
+				grid-template-columns: 3fr 1fr;
+			}
 		</style>
 	</head>
 	<body>
 		<Nav />
+		<!--
 		<header style={`background-image:url(${content.img})`} class="hero">
 			<h1 class="title">{content.title}</h1>
 		</header>
@@ -98,6 +111,15 @@ const { content } = Astro.props;
 		</div>
 		<div class="wrapper">
 			<div class="content"><slot /></div>
+		</div>-->
+		<div class="wrapper">
+			<a class="title">{content.title} <a class="subtitle">{content.client}</a></a>
+			<h3 class="accent">{content.description}</h3>
+			<div class="grid">
+				<div class="bio">
+					<slot />
+				</div>
+			</div>
 		</div>
 		<footer>
 			<a href="/projects" class="button">Voir plus</a>

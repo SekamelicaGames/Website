@@ -26,11 +26,6 @@ const featuredProject = projects[0]!;
 			description="Alice Pinto : Développeuse indépendante - Artiste-auteure"
 		/>
 		<style>
-			.wrapper {
-				margin-top: 2em;
-				margin-bottom: 2em;
-			}
-
 			.hero {
 				position: relative;
 				overflow: hidden;
@@ -87,19 +82,6 @@ const featuredProject = projects[0]!;
 				}
 			}
 
-			.title {
-				font-weight: 900;
-				font-size: var(--f-u6);
-				margin-bottom: 0.5rem;
-				margin-top: 0;
-			}
-
-			@media (min-width: 750px) {
-				.title {
-					font-size: var(--f-u12);
-				}
-			}
-
 			.grid {
 				display: grid;
 				grid-gap: 2rem;
@@ -111,15 +93,11 @@ const featuredProject = projects[0]!;
 				}
 			}
 
-			.pseudonyme {
-				font-size: var(--f-d4);
-				color: var(--c-sekared);
-			}
-
 			.sectionTitle {
 				font-weight: 700;
 				font-size: var(--f-u8);
 				margin-top: 2rem;
+				text-transform: uppercase;
 			}
 
 			.rolename
@@ -127,7 +105,7 @@ const featuredProject = projects[0]!;
 				font-weight: 600;
 				font-size: var(--f-u1);
 				margin-top: 0rem;
-				color: var(--c-red);
+				color: var(--c-sekared);
 			}
 
 			.roles {
@@ -191,13 +169,6 @@ const featuredProject = projects[0]!;
 				margin-bottom: 0;
 			}
 
-			.subtitle {
-				display: block;
-				font-weight: 400;
-				font-size: var(--f-d6);
-				letter-spacing: -0.0625em;
-			}
-
 			.bio {
 				line-height: 2;
 				margin-bottom: 2rem;
@@ -253,11 +224,11 @@ const featuredProject = projects[0]!;
 			</div>
 		</header> -->
 		<main class="wrapper">
+			<a class="title">Alice Pinto <a class="subtitle">@Sekamelica</a></a>
+			<h3 class="accent">Développeuse indépendante - Artiste-auteure</h3>
 			<div class="grid">
 				<div class="section">
-					<h3 class="sectionTitle">Alice Pinto <a class="pseudonyme">(Sekamelica)</a></h3>
-					<h4 class="rolename">Développeuse indépendante - Artiste-auteure</h4>
-					<p class="bio"> Plus jeune je faisais des jeux RPG Maker et aujourd'hui je développe mon projet rêvé de Metroidvania en tant que développeuse indépendante artiste-auteure.<br><br>
+					<p class="description"> Plus jeune je faisais des jeux RPG Maker et aujourd'hui je développe mon projet rêvé de Metroidvania en tant que développeuse indépendante artiste-auteure.<br><br>
 						Je réalise également des prestations de développement sur Unity pour d'autres studios où je partage mon expertise de plus de six ans d'utilisation quotidienne d'Unity, notamment :
 						<ul>
 							<li class="majorlistelement">Architecture de projet</li>
@@ -291,8 +262,7 @@ const featuredProject = projects[0]!;
 						</ul>
 					</p>
 					<br>
-					<h3>📝 <a href="/about">Biographie</a></h3>
-					<h3>📧 <a href="/contact">Contact</a></h3>
+					<a href="/projects" class="button">🎮 Projets</a> <a href="/about" class="button">📝 Biographie</a> <a href="/contact" class="button">📧 Contact</a>
 				</div>
 				<div class="section">
 					<div class="projectgrid">

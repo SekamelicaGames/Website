@@ -1,0 +1,33 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<html lang="fr">
+	<head>
+		<MainHead title="Sekamelica Games | Contact" />
+		<style>
+			.wrapper {
+				margin-top: 2em;
+				margin-bottom: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<div class="wrapper">
+			<a class="title">Contact</a>
+			<h3 class="accent">Formulaire de contact</h3>
+			<p class="description">Pour toute prise de contact : </p>
+			<a href="mailto:contact@sekamelicagames.com" class="button_nouppercase">contact@sekamelicagames.com</a>
+			<br>
+			<br>
+			<p class="description">Pour signaler un bug ou un problème avec l'un de mes jeux :</p>
+			<a href="mailto:support@sekamelicagames.com" class="button_nouppercase">support@sekamelicagames.com</a>
+			<br><br><br>
+			<a href="/projects" class="button">🎮 Projets</a> <a href="/about" class="button">📝 Biographie</a> 
+		</div>
+		<Footer />
+	</body>
+</html>

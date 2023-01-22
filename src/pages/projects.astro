@@ -22,21 +22,35 @@ const projects = (await Astro.glob<Project>('./project/**/*.md'))
 		<style>
 			.grid {
 				display: grid;
-				grid-gap: 3rem;
-			}
-			.title {
-				margin-top: 2rem;
-				margin-bottom: 2rem;
+				grid-gap: 0.5rem;
 			}
 		</style>
 	</head>
 	<body>
 		<Nav />
 		<div class="wrapper">
-			<h1 class="title">Tout les projets</h1>
+			<a class="title">Projets</a>
+			<h3 class="accent">Projets récents</h3>
+			<div class="grid">
+				<PortfolioPreview project={projects[0]} />
+				<PortfolioPreview project={projects[1]} />
+			</div>
+			<h3 class="accent">Kalank</h3>
+			<div class="grid">
+				<PortfolioPreview project={projects[4]} />
+				<PortfolioPreview project={projects[5]} />
+			</div>
+			<h3 class="accent">Autres jeux</h3>
+			<div class="grid">
+				<PortfolioPreview project={projects[2]} />
+				<PortfolioPreview project={projects[3]} />
+			</div>
+			
+			<!-- 
 			<div class="grid">
 				{projects.map((project) => <PortfolioPreview project={project} />)}
 			</div>
+			-->
 		</div>
 		<Footer />
 	</body>

@@ -9,11 +9,10 @@
 	--c-orange: #ffb7a3;
 	--c-yellow: #ffdace;
 	--c-white: #fff;
-	--c-red: rgb(255, 0, 0);
-	--c-sekared: rgb(209, 51, 117);
+	--c-sekared: rgb(201, 66, 119);
 	--c-navbackgroundcolor: rgb(255, 226, 146);
 	--c-navlinkcolor: rgb(0, 0, 0);
-	--c-background: rgb(255, 251, 190);
+	--c-background: rgb(255, 247, 207);
 
 	/* Fonts */
 	--f-u18: 11.390625em;
@@ -56,17 +55,26 @@
 	--t-fg: var(--c-black);
 	--t-bg: var(--c-white);
 	--t-subdue: var(--c-gray);
-	--t-active: var(--c-red);
+	--t-active: var(--c-sekared);
 }
 
 html {
 	background-color: var(--c-background);
 }
 
+@font-face {
+    font-family: 'robotoregular';
+    src: url('/assets/fonts/roboto/webfontkit/roboto-regular-webfont.woff2') format('woff2'),
+         url('/assets/fonts/roboto/webfontkit/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	margin: 0;
 	color: var(--t-fg);
-	font-family: 'Inter', 'system-ui', sans-serif;
+	font-family: 'robotoregular';
+	/*font-family: 'Inter', 'system-ui', sans-serif;*/
 }
 
 * {
@@ -94,10 +102,43 @@ h1 {
 	text-transform: uppercase;
 }
 
+.button_nouppercase {
+	display: inline-block;
+	border: 3px solid currentColor;
+	padding: 0.5em 1em;
+	font-weight: 700;
+}
+
 .wrapper {
 	max-width: 80em;
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 2rem;
 	padding-right: 2rem;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.title {
+	font-weight: 700;
+	font-size: var(--f-u8);
+	margin-top: 2rem;
+	text-transform: uppercase;
+	color: black;
+}
+
+.subtitle {
+	font-weight: 900;
+	font-size: var(--f-u1);
+	text-transform: uppercase;
+}
+
+.description
+{
+	font-size: var(--f-u1);
+	line-height: 2;
+}
+
+.accent {
+	color: var(--c-sekared);
 }

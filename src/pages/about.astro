@@ -11,30 +11,13 @@ import Nav from '../components/Nav.astro';
 		description="Biographie d'Alice Pinto" />
 		<style>
 			.bio {
-				font-size: var(--f-u1);
-				line-height: 2;
 				width: 80%;
 				margin-right: 20%;
 			}
 
-			.name
-			{
-				margin: 0;
-			}
-
-			.wrapper.bio {
-				max-width: 50em;
-			}
-
-			.description
-			{
-				font-size:  var(--f-d2);
-			}
-
 			.grid {
-				margin-top: 4em;
 				display: grid;
-				grid-gap: 2rem;
+				grid-gap: 0rem;
 				grid-template-columns: 3fr 1fr;
 			}
 
@@ -42,44 +25,85 @@ import Nav from '../components/Nav.astro';
 			{
 				width: 200px;
 				height: 200px;
-				border: 2px solid red;
-				margin-bottom: 2em;
+				border: 3px solid var(--c-sekared);
+				margin-top: 1rem;
 			}
 		</style>
 	</head>
 	<body>
 		<Nav />
 		<div class="wrapper">
+			<a class="title">Biographie <a class="subtitle">Alice Pinto</a></a>
+			
+			<h3 class="accent">Jeunesse - 🏰 RPG Maker et 📄 premiers langages de programmation</h3>
+
+			<div class="grid">
+				<div class="bio">
+					<p class="description">J'ai commencé le développement de jeux dans les années 2010 avec RPG Maker qui a changé le monde des possibles pour moi,
+						et j'en ai fait durant des années. Puis j'ai appris quelques bases de C et C# mais j'ai fini par me diriger vers le développement web avec le javascript qui
+						m'a permis de faire quelques petits jeux et mieux comprendre le développement, avant de me remettre au C# avec Unity quand j'ai commencé mes études supérieures en
+						ingénierie informatique.
+					</p>
+				</div>
+				<div>
+					<img class="illustration" src="/assets/about/image_1.png">
+				</div>
+			</div>
+
+			<h3 class="accent">Fin d'études - Game jams et ✨ itch.io ✨</h3>
+
+			<div class="grid">
+				<div class="bio">
+					<p class="description"> Dans les années 2017-2019 (coincidant avec mes dernières années d'études, mon master à l'ENJMIN) j'ai participé à plusieurs game jams 
+						et sorti de nombreux petits jeux sur itch.io comme <a href="https://sekamelica.itch.io/slug-life">Slug Life</a> ou <a href="https://sekamelica.itch.io/reaktor">REAKTOR</a>. <br>
+						Je réfléchissais beaucoup dans mes jeux au rapport à la création et à l'art, à la santé mentale, à l'identité queer, et à la manière de transmettre des émotions via l'architecture, notamment inspirée par l'architecture brutaliste.
+						<br><br>
+						Je me faisais alors la réflexion que beaucoup de ces jeux, beaucoup des jeux queer, étaient souvent des petits jeux, souvent narratifs, souvent des visual novel.
+						Et le souhait que j'ai aujourd'hui c'est de faire autre chose, des jeux plus long, plus ambitieux techniquement, plus orienté autour du gameplay, mais toujours traversés par ces mêmes thèmes.
+					</p>
+				</div>
+				<div>
+					<img class="illustration" src="/assets/about/image_2.png">
+					<img class="illustration" src="/assets/about/image_3.png">
+				</div>
+			</div>
+			
+			<h3 class="accent">Kalank - Développement mobile en équipe 💻📱👩👨👩👨</h3>
+			
+			<div class="grid">
+				<div class="bio">
+					<p class="description"> De 2019 à 2022 j'ai travaillé à <a href="https://kalank.fr/fr/">Kalank ⚡</a>.<br>
+						J'y ai fait beaucoup de développement mobile (Android et iOS) et réalité augmentée, le tout souvent sur Unity, ce qui nécessitait un effort important d'optimisation. <br>
+						Nous avons ainsi shippé <a href="https://kalank.fr/fr/tokotoko/">Tokotoko</a> au nom de Kalank, mais aussi de nombreux autres jeux pour des clients du studio. <br>
+						Outre les jeux mobiles j'ai également fait de la programmation gameplay et shaders pour un jeu sorti sur consoles lors d'une prestation. <br>
+						Et hors développement, je communiquais avec l'équipe pour améliorer la communication et les outils, j'encadrais de supers stagiaires et apprentis,
+						prenait le temps de rédiger de la bonne documentation et de bons tutoriels, et essayait de trouver des manières d'améliorer nos méthodes de travail et d'organisation en équipe.
+					</p>
+				</div>
+				<div>
+					<img class="illustration" src="/assets/about/image_4.png">
+					<img class="illustration" src="/assets/about/image_5.png">
+				</div>
+			</div>
+
+			<h3 class="accent">Aujourd'hui - Développeuse indépendante 💻🏃‍♀️💨✨</h3>
+
+			<div class="grid">
+				<div class="bio">
+					<p class="description"> Fin 2022, je quittais Kalank pour me consacrer à de nouveaux projets et devenir une développeuse indépendante.<br>
+						Je travaille actuellement à la création de mon projet rêvé de metroidvania, et sous statut artiste-auteur j'effectue des prestations de développement pour d'autres 
+						studios.
+					</p>
+				</div>
+				<div>
+					<img class="illustration" src="/assets/about/image_6.png">
+				</div>
+			</div>
+			<br>
+			<a href="/projects" class="button">🎮 Projets</a> <a href="/contact" class="button">📧 Contact</a>
+			<!--
 			<div class="grid">
 				<div class="bio wrapper">
-						<h2 class="name">Alice Pinto - Biographie</h2>
-						<h6>Jeunesse - 🏰 RPG Maker et 📄 premiers langages de programmation</h6>
-							<p class="description">J'ai commencé le développement de jeux dans les années 2010 avec RPG Maker qui a changé le monde des possibles pour moi,
-								et j'en ai fait durant des années. Puis j'ai appris quelques bases de C et C# mais j'ai fini par me diriger vers le développement web avec le javascript qui
-								m'a permis de faire quelques petits jeux et mieux comprendre le développement, avant de me remettre au C# avec Unity quand j'ai commencé mes études supérieures en
-								ingénierie informatique.
-							</p>
-						<h6>Fin d'études - Game jams et ✨ itch.io ✨</h6>
-							<p class="description"> Dans les années 2017-2019 (coincidant avec mes dernières années d'études, mon master à l'ENJMIN) j'ai participé à plusieurs game jams 
-								et sorti de nombreux petits jeux sur itch.io comme <a href="https://sekamelica.itch.io/slug-life">Slug Life</a> ou <a href="https://sekamelica.itch.io/reaktor">REAKTOR</a>. <br>
-								Je réfléchissais beaucoup dans mes jeux au rapport à la création et à l'art, à la santé mentale, à l'identité queer, et à la manière de transmettre des émotions via l'architecture, notamment inspirée par l'architecture brutaliste. <br>
-								Je me faisais alors la réflexion que beaucoup de ces jeux, beaucoup des jeux queer, étaient souvent des petits jeux, souvent narratifs, souvent des visual novel.
-								Et le souhait que j'ai aujourd'hui c'est de faire autre chose, des jeux plus long, plus ambitieux techniquement, plus orienté autour du gameplay, mais toujours traversés par ces mêmes thèmes.
-							</p>
-						<h6>Kalank - Développement mobile en équipe 💻📱👩👨👩👨</h6>
-							<p class="description"> De 2019 à 2022 j'ai travaillé à <a href="https://kalank.fr/fr/">Kalank ⚡</a>.<br>
-								J'y ai fait beaucoup de développement mobile (Android et iOS) et réalité augmentée, le tout souvent sur Unity, ce qui nécessitait un effort important d'optimisation. <br>
-								Nous avons ainsi shippé  <a href="https://kalank.fr/fr/tokotoko/">Tokotoko</a> au nom de Kalank, mais aussi de nombreux autres jeux pour des clients du studio. <br>
-								Outre les jeux mobiles j'ai également fait de la programmation gameplay et shaders pour un jeu sorti sur consoles lors d'une prestation. <br>
-								Et hors développement, je communiquais avec l'équipe pour améliorer la communication et les outils, j'encadrais de supers stagiaires et apprentis,
-								prenait le temps de rédiger de la bonne documentation et de bons tutoriels, et essayait de trouver des manières d'améliorer nos méthodes de travail et d'organisation en équipe.
-							</p>
-						<h6>Aujourd'hui - Développeuse indépendante 💻🏃‍♀️💨✨</h6>
-							<p class="description">
-								Fin 2022, je quittais Kalank pour me consacrer à de nouveaux projets et devenir une développeuse indépendante.<br>
-								Je travaille actuellement à la création de mon projet rêvé de metroidvania, et sous statut artiste-auteur j'effectue des prestations de développement pour d'autres 
-								studios.
-							</p>
 				</div>
 				<div>
 					<img class="illustration" src="/assets/about/image_1.png">
@@ -88,7 +112,7 @@ import Nav from '../components/Nav.astro';
 					<img class="illustration" src="/assets/about/image_4.png">
 					<img class="illustration" src="/assets/about/image_5.png">
 				</div>
-			</div>
+			</div>-->
 		</div>
 		<Footer />
 	</body>
