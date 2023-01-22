@@ -6,7 +6,7 @@ publishDate: 2020-03-02 00:00:00
 orderId: 1
 img: '/assets/projects/sekavania/sekavania_1.png'
 description: |
-  SekamelicaGames - Jeu type metroidvania en cours de développement.
+  SekamelicaGames - Jeu metroidvania en cours de développement
 tags:
   - Unity
   - game-design
@@ -14,4 +14,4 @@ tags:
   - pixel-art
 ---
 
-Jeu indépendant de type metroidvania en cours de développement. [A compléter]
+Jeu indépendant de type metroidvania en cours de développement.
