@@ -8,12 +8,23 @@ import type { Project } from '../types';
 
 // Data Fetching: List all Markdown posts in the repo.
 const projects = (await Astro.glob<Project>('./project/**/*.md'))
-	.filter(({ frontmatter }) => !!frontmatter.orderId)
-	.sort(
+	.filter(({ frontmatter }) => !!frontmatter.categoryId);
+const projects_recent = projects.filter(({ frontmatter }) => frontmatter.categoryId == 1).sort(
 		(a, b) =>
 		a.frontmatter.orderId - b.frontmatter.orderId
 	);
-const featuredProject = projects[0]!;
+const projects_kalank = projects.filter(({ frontmatter }) => frontmatter.categoryId == 2).sort(
+	(a, b) =>
+	a.frontmatter.orderId - b.frontmatter.orderId
+);
+const projects_enjmin = projects.filter(({ frontmatter }) => frontmatter.categoryId == 3).sort(
+	(a, b) =>
+	a.frontmatter.orderId - b.frontmatter.orderId
+);
+const projects_other = projects.filter(({ frontmatter }) => frontmatter.categoryId == 4).sort(
+	(a, b) =>
+	a.frontmatter.orderId - b.frontmatter.orderId
+);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -26,171 +37,20 @@ const featuredProject = projects[0]!;
 			description="Alice Pinto : Développeuse indépendante - Artiste-auteure"
 		/>
 		<style>
-			.hero {
-				position: relative;
-				overflow: hidden;
-			}
-
-			@media (min-width: 750px) {
-				.hero {
-					height: 45vw;
-				}
-			}
-
-			.img {
-				display: block;
-				width: 100%;
-				height: auto;
-			}
-
-			.gradient,
-			.gradient2 {
-				background-image: url('/assets/mesh-gradient.jpg');
-				background-size: cover;
-				pointer-events: none;
-				mix-blend-mode: screen;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 2;
-			}
-
-			.gradient2 {
-				mix-blend-mode: multiply;
-				background-size: cover;
-			}
-
-			.overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 10;
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				justify-content: center;
-				padding-left: 2rem;
-			}
-
-			@media (min-width: 750px) {
-				.overlay {
-					padding-left: 4rem;
-				}
-			}
-
-			.grid {
-				display: grid;
-				grid-gap: 2rem;
-			}
-
-			@media (min-width: 1200px) {
-				.grid {
-					grid-template-columns: 1.5fr 2fr;
-				}
-			}
-
-			.sectionTitle {
-				font-weight: 700;
-				font-size: var(--f-u8);
-				margin-top: 2rem;
-				text-transform: uppercase;
-			}
-
-			.rolename
+			.grid
 			{
-				font-weight: 600;
-				font-size: var(--f-u1);
-				margin-top: 0rem;
-				color: var(--c-sekared);
-			}
-
-			.roles {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.25em;
-				font-size: var(--f-d1);
-			}
-
-			.role {
-				position: relative;
-				display: inline-block;
-				white-space: nowrap;
-				font-weight: 900;
-				color: var(--t-bg);
-				background-color: var(--t-fg);
-				padding: 0.25em 0.36em;
-				z-index: 2;
-			}
-
-			@media (min-width: 750px) {
-				.role {
-					font-size: var(--f-u1);
-				}
-			}
-
-			.role:nth-of-type(1) .invert {
-				background-color: var(--c-yellow);
-			}
-
-			.role:nth-of-type(2) .invert {
-				background-color: var(--c-pink);
-			}
-
-			.role:nth-of-type(3) .invert {
-				background-color: var(--c-green);
-			}
-
-			.role:hover .invert {
-				clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-			}
-
-			.invert {
-				position: absolute;
-				color: var(--t-fg);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-				pointer-events: none;
-				clip-path: polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%);
-				transition: clip-path cubic-bezier(0.4, 0, 0.5, 1) 150ms;
-			}
-
-			.desc {
-				font-size: var(--f-u1);
-				margin-top: 1.5rem;
-				margin-bottom: 0;
-			}
-
-			.bio {
-				line-height: 2;
-				margin-bottom: 2rem;
-			}
-
-			.bio > span:first-of-type {
-				line-height: 1;
-				margin-bottom: 0.5em;
-				display: block;
-				font-weight: 700;
-				font-size: var(--f-u4);
-			}
-
-			.buttonContainer {
-				text-align: center;
-				margin-top: 2em;
-			}
-
-			.projectgrid {
 				display: grid;
-				grid-gap: 3rem;
-				grid-template-rows: auto;
+				grid-gap: 6rem;
+			}
+
+			.grid
+			{
+				grid-template-columns: 1fr 1fr;
+			}
+
+			.projectblock
+			{
+				max-width:476px; margin-bottom: 20px;
 			}
 
 			.majorlistelement 
@@ -201,35 +61,33 @@ const featuredProject = projects[0]!;
 	</head>
 	<body>
 		<Nav />
-		<!--<header class="hero">
-			<img
-				width="1600"
-				height="1131"
-				class="img"
-				src="/assets/mesh-gradient.jpg"
-				sizes="(max-width: 800px) 800px"
-			/>
-			<div class="gradient"></div>
-			<div class="gradient2"></div>
-			<div class="overlay">
-				<h1 class="title">
-					Alice Pinto <small class="subtitle">Développeuse indépendante - Artiste-auteure</small>
-				</h1>
-				<!---<div class="roles">
-					<span class="role">👩‍💻 Developer <span class="invert">👩‍💻 Developer</span></span>
-					<span class="role">🎤 Speaker <span class="invert">🎤 Speaker</span></span>
-					<span class="role">✏️ Writer <span class="invert">✏️ Writer</span></span>
-				</div>
-				<p class="desc">Développeuse polyvalente (Moteur, tech-art, gameplay, tools) et spécialiste Unity (+ de 6 ans d'expérience)</p>
-			</div>
-		</header> -->
 		<main class="wrapper">
 			<a class="title">Alice Pinto <a class="subtitle">@Sekamelica</a></a>
-			<h3 class="accent">Développeuse indépendante - Artiste-auteure</h3>
+			<h3 class="accent">Développeuse indépendante de jeux-vidéo (artiste-auteure)</h3>
 			<div class="grid">
 				<div class="section">
-					<p class="description"> Plus jeune je faisais des jeux RPG Maker et aujourd'hui je développe mon projet rêvé de Metroidvania en tant que développeuse indépendante artiste-auteure.<br><br>
-						Je réalise également des prestations de développement sur Unity pour d'autres studios où je partage mon expertise de plus de six ans d'utilisation quotidienne d'Unity, notamment :
+					<p class="description">
+						Je travaille en ce moment sur l'écriture et le design d'un metroidvania dont j'ai réalisé un premier prototype.
+						Les contrôles hyper fluides, précis et réactifs seront exploités jusque dans leurs retranchements afin de surmonter 
+						des défis d'exploration-plateforme, des combats et des boss qui se dresseront sur le chemin d'une quête entre vengeance et justice sociale.
+						<br><br>
+						<img style="aspect-ratio: 250 / 470; max-width: 470px; border: 3px solid var(--c-sekared);" alt="Metroidvania gif" src="/assets/projects/sekavania/sekavania_gif.gif">
+						<br>
+						<div class="projectblock">
+							<PortfolioPreview project={projects_recent[0]} />
+						</div>
+						<div class="projectblock">
+							<PortfolioPreview project={projects_recent[1]} />
+						</div>
+						<div class="projectblock">
+							<PortfolioPreview project={projects_other[0]} />
+						</div>
+					</p>
+				</div>
+				<div class="section">
+					<p class="description">
+						Je réalise également des prestations de développement sur Unity pour d'autres studios où je partage mon expertise de plus de six ans d'utilisation 
+						quotidienne d'Unity, notamment autour de :
 						<ul>
 							<li class="majorlistelement">Architecture de projet</li>
 							<li class="majorlistelement">Programmation gameplay</li>
@@ -260,23 +118,22 @@ const featuredProject = projects[0]!;
 							<li class="majorlistelement">Développement d'expériences en réalité augmentée ou réalité virtuelle</li>
 							Mobile (android et iOS), Hololens, Oculus GO.
 						</ul>
+						<div class="projectblock" style="margin-top: 112px;">
+							<PortfolioPreview project={projects_kalank[0]} />
+						</div>
+						<div class="projectblock">
+							<PortfolioPreview project={projects_kalank[2]} />
+						</div>
 					</p>
-					<br>
-					<a href="/projects" class="button">🎮 Projets</a> <a href="/about" class="button">📝 Biographie</a> <a href="/contact" class="button">📧 Contact</a>
-				</div>
-				<div class="section">
-					<div class="projectgrid">
-						{projects.map((project) => <div class="projectcard"><PortfolioPreview project={project} /></div>)}
-					</div>
-
-					<!-- 
-					<h3 class="sectionTitle">Sélection des projets</h3>
-					<PortfolioPreview project={featuredProject} />
-					<div class="buttonContainer">
-						<a href="/projects/" class="button">Voir tout</a>
-					</div>-->
 				</div>
 			</div>
+			<br><br>
+			<a href="/projects" class="button" style="
+			display: block;
+			margin-left: auto;
+			margin-right: 47.5%;
+			width: 190px;
+			">Voir tous les projets</a>
 		</main>
 		
 		<Footer />

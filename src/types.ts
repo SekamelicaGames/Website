@@ -1,9 +1,9 @@
 export interface Project {
 	title: string;
-	client: string;
-	description: string;
+	devteam: string;
+	shortDescription: string;
 	publishDate: string;
-	tags: string[];
 	img: string;
 	orderId: number;
+	categoryId: number;
 }

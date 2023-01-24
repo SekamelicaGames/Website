@@ -13,7 +13,7 @@ const { content } = Astro.props;
 
 <html lang="fr">
 	<head>
-		<MainHead title={content.title} description={content.description} />
+		<MainHead title={content.title} description={content.shortDescription} />
 		<style>
 			.hero {
 				padding: 8rem;
@@ -92,33 +92,16 @@ const { content } = Astro.props;
 
 			.grid {
 				display: grid;
-				grid-gap: 0rem;
-				grid-template-columns: 3fr 1fr;
 			}
 		</style>
 	</head>
 	<body>
 		<Nav />
-		<!--
-		<header style={`background-image:url(${content.img})`} class="hero">
-			<h1 class="title">{content.title}</h1>
-		</header>
-		<div class="leadIn">
-			<div class="wrapper">
-				{content.tags.map((t) => <span class="tag">{t}</span>)}
-				<h3 class="tagline">{content.description}</h3>
-			</div>
-		</div>
 		<div class="wrapper">
-			<div class="content"><slot /></div>
-		</div>-->
-		<div class="wrapper">
-			<a class="title">{content.title} <a class="subtitle">{content.client}</a></a>
-			<h3 class="accent">{content.description}</h3>
+			<a class="title">{content.title}</a>
+			<h3 class="accent">Par {content.devteam}</h3>
 			<div class="grid">
-				<div class="bio">
-					<slot />
-				</div>
+				<slot />
 			</div>
 		</div>
 		<footer>
