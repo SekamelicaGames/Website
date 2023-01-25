@@ -12,8 +12,9 @@ shortDescription: |
 <h4><a class="accent">Genre :</a> Idle game, gestion et collection </h4>
 <h4><a class="accent">Statut :</a> En cours de développement</h4>
 <h4>
-<a class="accent">Plateformes : Android, iOS</a>
+<a class="accent">Plateformes :</a> Android, iOS
 </h4>
+<h4><a class="accent">Moteur :</a> Unity</h4>
 <p class="description">
 Hello Tokotoko est un idle game mobile développé sur Unity, prévu pour sortir sur Android et iOS.
 <br>

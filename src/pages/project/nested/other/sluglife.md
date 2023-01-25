@@ -15,6 +15,7 @@ shortDescription: |
 <a class="accent">Plateformes :</a>
 <a href="https://sekamelica.itch.io/slug-life" class="button_nouppercase">itch.io</a>
 </h4>
+<h4><a class="accent">Moteur :</a> Bitsy</h4>
 <p class="description">
 Un court jeu Bitsy racontant l'histoire d'une limace qui a peur de sortir en étant elle-même.
 <br>

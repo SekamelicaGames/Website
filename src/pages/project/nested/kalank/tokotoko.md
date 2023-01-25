@@ -16,6 +16,7 @@ shortDescription: |
 <a href="https://play.google.com/store/apps/details?id=com.kalank.tokotokogame&hl=fr&gl=US" class="button_nouppercase">Android</a>
 <a href="https://apps.apple.com/fr/app/tokotoko-ar-histoire-cr%C3%A9ative/id1465697956" class="button_nouppercase">iOS</a>
 </h4>
+<h4><a class="accent">Moteur :</a> Unity</h4>
 <p class="description">
 Tokotoko est un jeu mobile, développé sur Unity, à destination d'Android et d'iOS pour les mobiles supportant la réalité augmentée.
 <br>

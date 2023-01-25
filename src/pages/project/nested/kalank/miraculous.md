@@ -18,8 +18,9 @@ shortDescription: |
 <a href="https://www.xbox.com/en-us/games/store/miraculous-rise-of-the-sphinx/9nfn299rjkwt" class="button_nouppercase">XBOX</a>
 <a href="https://www.nintendo.com/store/products/miraculous-rise-of-the-sphinx-switch/" class="button_nouppercase">Switch</a>
 </h4>
+<h4><a class="accent">Moteur :</a> Unity</h4>
 <p class="description">
-Miraculous : Rise of the Sphinx est un jeu d'action aventures multi-plateformes, jouable en solo ou coop locale, développé sur Unity, qui raconte une histoire originale suivant les aventures des héros Miraculous Ladybug et Chat Noir.
+Miraculous : Rise of the Sphinx est un jeu d'action aventures multi-plateformes, jouable en solo ou coop locale, qui raconte une histoire originale suivant les aventures des héros Miraculous Ladybug et Chat Noir.
 <br>
 Pour sauver Paris du plan du mégavilain le Papillon, Miraculous Ladybug (Marinette) et Chat Noir (Adrien) vont devoir faire appel à leur double identité, mais surtout à leur superpouvoirs. En explorant les rues de Paris, fidèles à l'animé, on fera appel aux compétences de plateforming et d'exploration pour traverser des environnements variés dans lesquels nombreux trésors et secrets sont à collecter et trouver, et les superpouvoirs de combat de nos deux héros permettront d'affronter des vilains iconiques et leurs sbires.
 </p>
