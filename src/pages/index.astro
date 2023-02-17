@@ -37,20 +37,53 @@ const projects_other = projects.filter(({ frontmatter }) => frontmatter.category
 			description="Alice Pinto : Développeuse indépendante - Artiste-auteure"
 		/>
 		<style>
-			.grid
+			/* pc */
+			@media (min-width: 1600px)
 			{
-				display: grid;
-				grid-gap: 6rem;
-			}
+				.grid
+				{
+					display: flex;
+					flex-direction: row;
+				}
 
-			.grid
+				.section
+				{
+					margin-left: 2%;
+					margin-right: 2%;
+					width: 42%;
+				}
+			}
+			
+			/* mobile */
+			@media not(min-width: 1600px)
 			{
-				grid-template-columns: 1fr 1fr;
+				.grid
+				{
+					display: flex;
+					flex-direction: column;
+				}
+
+				.section
+				{
+					margin-left: 4%;
+					margin-right: 4%;
+					width: 92%;
+				}
 			}
 
 			.projectblock
 			{
-				max-width:476px; margin-bottom: 20px;
+				width: 80%;
+				padding-left: 10%;
+				padding-right: 10%;
+				margin-bottom: 20px;
+			}
+
+			.metroidvaniagif
+			{
+				width: 100%;
+				aspect-ratio: 470 / 250;
+				border: 3px solid var(--c-sekared);
 			}
 
 			.majorlistelement 
@@ -71,7 +104,9 @@ const projects_other = projects.filter(({ frontmatter }) => frontmatter.category
 						Les contrôles hyper fluides, précis et réactifs seront exploités jusque dans leurs retranchements afin de surmonter 
 						des défis d'exploration-plateforme, des combats et des boss qui se dresseront sur le chemin d'une quête entre vengeance et justice sociale.
 						<br><br>
-						<img style="aspect-ratio: 250 / 470; max-width: 470px; border: 3px solid var(--c-sekared);" alt="Metroidvania gif" src="/assets/projects/sekavania/sekavania_gif.gif">
+						<div class="projectblock">
+							<img class="metroidvaniagif" alt="Metroidvania gif" src="/assets/projects/sekavania/sekavania_gif.gif">
+						</div>
 						<br>
 						<div class="projectblock">
 							<PortfolioPreview project={projects_recent[0]} />
@@ -118,7 +153,7 @@ const projects_other = projects.filter(({ frontmatter }) => frontmatter.category
 							<li class="majorlistelement">Développement d'expériences en réalité augmentée ou réalité virtuelle</li>
 							Mobile (android et iOS), Hololens, Oculus GO.
 						</ul>
-						<div class="projectblock" style="margin-top: 112px;">
+						<div class="projectblock">
 							<PortfolioPreview project={projects_kalank[0]} />
 						</div>
 						<div class="projectblock">
