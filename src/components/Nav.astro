@@ -30,6 +30,7 @@
 		align-items: center;
 		padding: 1rem;
 		/*background-color: var(--c-navbackgroundcolor);*/
+		width: 100%;
 		border-bottom: 1px solid black;
 	}
 
@@ -47,7 +48,7 @@
 		color: var(--c-navlinkcolor);
 		display: block;
 		text-decoration: none;
-		font-size: var(--f-d1);
+		font-size: var(--f-d3);
 		text-transform: uppercase;
 		padding-top: 0.75em;
 		padding-bottom: 0.75em;
@@ -56,6 +57,24 @@
 		margin-right: 0.5rem;
 	}
 
+	/* pc */
+	@media (min-width: 600px)
+	{
+		.link 
+		{
+			color: var(--c-navlinkcolor);
+			display: block;
+			text-decoration: none;
+			font-size: var(--f-d1);
+			text-transform: uppercase;
+			padding-top: 0.75em;
+			padding-bottom: 0.75em;
+			font-weight: 900;
+			letter-spacing: 0.05rem;
+			margin-right: 0.5rem;
+		}
+	}
+	
 	.link:hover,
 	.link:focus {
 		color: var(--t-active);
