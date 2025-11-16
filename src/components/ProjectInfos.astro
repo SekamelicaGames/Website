@@ -19,6 +19,10 @@ const { frontmatter, url } = Astro.props.project;
 		{(frontmatter.publisher != "" && frontmatter.publisher != null) && 
 		<><span class="projectfield accent">Publisher:</span><span class="projectfieldvalue"> {frontmatter.publisher}</span>
 		<br/></>}
+		<!--- Engine --->
+		{(frontmatter.engine != null && frontmatter.engine != "") && 
+		<><span class="projectfield accent">Engine:</span><span class="projectfieldvalue"> {frontmatter.engine}</span>
+		<br/></>}
 		<!--- Space --->
 		{((frontmatter.devteam != null && frontmatter.devteam != "") || (frontmatter.publisher != null && frontmatter.publisher != "")) &&
 		<><br/></>}
