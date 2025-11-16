@@ -1,0 +1,36 @@
+---
+import type { MarkdownInstance } from 'astro';
+import type { Project } from '../types';
+
+interface Props {
+	project: MarkdownInstance<Project>;
+}
+
+const { frontmatter, url } = Astro.props.project;
+---
+<div class="center_flex">
+	<p class="alignleft">
+		<!--- GAME DEVELOPER & PUBLISHER INFOS --->
+		<!--- Developer --->
+		{(frontmatter.devteam != null && frontmatter.devteam != "") && 
+		<><span class="projectfield accent">Developer:</span><span class="projectfieldvalue"> {frontmatter.devteam}</span>
+		<br/></>}
+		<!--- Publisher --->
+		{(frontmatter.publisher != "" && frontmatter.publisher != null) && 
+		<><span class="projectfield accent">Publisher:</span><span class="projectfieldvalue"> {frontmatter.publisher}</span>
+		<br/></>}
+		<!--- Space --->
+		{((frontmatter.devteam != null && frontmatter.devteam != "") || (frontmatter.publisher != null && frontmatter.publisher != "")) &&
+		<><br/></>}
+
+		<!--- GAME GENRE STATUS & PLATFORMS INFOS --->
+		{(frontmatter.genre != null && frontmatter.genre != "") && 
+		<><span class="projectfield accent">Genre:</span><span class="projectfieldvalue"> {frontmatter.genre}</span>
+		<br/></>}
+		{(frontmatter.status != null && frontmatter.status != "") && 
+		<><span class="projectfield accent">Status:</span><span class="projectfieldvalue"> {frontmatter.status}</span>
+		<br/></>}
+		{(frontmatter.platforms != null && frontmatter.platforms != "") && 
+		<><span class="projectfield accent">Platforms:</span><span class="projectfieldvalue"> {frontmatter.platforms}</span></>}
+	</p>
+</div>

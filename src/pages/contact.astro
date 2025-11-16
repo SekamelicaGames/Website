@@ -1,31 +1,37 @@
 ---
-import MainHead from '../components/MainHead.astro';
-import Footer from '../components/Footer.astro';
+// Component Imports
+import SHead from '../components/SHead.astro';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CatFace from '../components/extra/CatFace.astro';
+import CatQuestion from '../components/extra/CatQuestion.astro';
 ---
 
-<html lang="fr">
+<html lang="en" >
 	<head>
-		<MainHead title="Sekamelica Games | Contact" />
-		<style>
-			.wrapper {
-				margin-top: 2em;
-				margin-bottom: 2em;
-			}
-		</style>
+		<SHead title="Contact" description="Contact"/>
 	</head>
 	<body>
-		<Nav />
-		<div class="wrapper">
-			<a class="title">Contact</a>
-			<h3 class="accent">Formulaire de contact</h3>
-			<p class="description">Pour toute prise de contact : </p>
-			<a href="mailto:contact@sekamelicagames.com" class="button_nouppercase">contact@sekamelicagames.com</a>
-			<br>
-			<br>
-			<p class="description">Pour signaler un bug ou un problème avec l'un de mes jeux :</p>
-			<a href="mailto:support@sekamelicagames.com" class="button_nouppercase">support@sekamelicagames.com</a>
-		</div>
-		<Footer />
+		<Nav/>
+		<main>
+			<div class="center_flex full_width">
+				<div class="wrapper">
+
+					<h2>For any contact:</h2>
+					<a href="mailto:contact@sekamelicagames.com" class="button_nouppercase">contact@sekamelicagames.com</a>
+					
+					<CatFace/>
+
+					<br>
+
+					<h2>For bug reporting on games:</h2>
+					<a href="mailto:support@sekamelicagames.com" class="button_nouppercase">support@sekamelicagames.com</a>
+
+					<CatQuestion/>
+
+				</div>
+			</div>
+		</main>
+		<Footer/>
 	</body>
 </html>

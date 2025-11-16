@@ -1,174 +1,50 @@
 ---
 // Component Imports
-import MainHead from '../components/MainHead.astro';
+import SHead from '../components/SHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+
+import { MarkdownInstance } from 'astro';
 import type { Project } from '../types';
+import ProjectBlock from '../components/ProjectBlock.astro';
+import SekaAscii from '../components/extra/SekaAscii.astro';
+import VindicaLogo from '../components/extra/VindicaLogo.astro';
+import VindicaIcon from '../components/extra/VindicaIcon.astro';
 
-// Data Fetching: List all Markdown posts in the repo.
-const projects = (await Astro.glob<Project>('./project/**/*.md'))
-	.filter(({ frontmatter }) => !!frontmatter.categoryId);
-const projects_recent = projects.filter(({ frontmatter }) => frontmatter.categoryId == 1).sort(
-		(a, b) =>
-		a.frontmatter.orderId - b.frontmatter.orderId
-	);
-const projects_kalank = projects.filter(({ frontmatter }) => frontmatter.categoryId == 2).sort(
-	(a, b) =>
-	a.frontmatter.orderId - b.frontmatter.orderId
-);
-const projects_enjmin = projects.filter(({ frontmatter }) => frontmatter.categoryId == 3).sort(
-	(a, b) =>
-	a.frontmatter.orderId - b.frontmatter.orderId
-);
-const projects_other = projects.filter(({ frontmatter }) => frontmatter.categoryId == 4).sort(
-	(a, b) =>
-	a.frontmatter.orderId - b.frontmatter.orderId
-);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+const projects = (await Astro.glob<Project>('./projects/**/*.md'));
+const project_vindicasecretsofblood = projects.find(({frontmatter})=>{ return frontmatter.title == "Vindica Secrets of Blood"}) as MarkdownInstance<Project>;
 ---
 
-<html lang="fr" >
+<html lang="en" >
 	<head>
-		<MainHead
-			title="Sekamelica Games"
-			description="Alice Pinto : Développeuse indépendante - Artiste-auteure"
-		/>
-		<style>
-			/* pc */
-			@media (min-width: 1600px)
-			{
-				.grid
-				{
-					display: flex;
-					flex-direction: row;
-				}
-
-				.section
-				{
-					margin-left: 2%;
-					margin-right: 2%;
-					width: 42%;
-				}
-			}
-			
-			/* mobile */
-			@media not(min-width: 1600px)
-			{
-				.grid
-				{
-					display: flex;
-					flex-direction: column;
-				}
-
-				.section
-				{
-					margin-left: 4%;
-					margin-right: 4%;
-					width: 92%;
-				}
-			}
-
-			.projectblock
-			{
-				width: 80%;
-				padding-left: 10%;
-				padding-right: 10%;
-				margin-bottom: 20px;
-			}
-
-			.metroidvaniagif
-			{
-				width: 100%;
-				aspect-ratio: 690 / 388;
-				border: 3px solid var(--c-sekared);
-			}
-
-			.majorlistelement 
-			{
-				font-weight: 600;
-			}
-		</style>
+		<SHead title="Sekamelica Games" description="French indie gamedev and freelance Unity dev"/>
 	</head>
 	<body>
-		<Nav />
-		<main class="wrapper">
-			<a class="title">Alice Pinto <a class="subtitle">@Sekamelica</a></a>
-			<h3 class="accent">Développeuse indépendante de jeux-vidéo (artiste-auteure)</h3>
-			<div class="grid">
-				<div class="section">
-					<p class="description">
-						Je travaille actuellement sur l'écriture et le game design d'Insurrection, un metroidvania 2D en pixel art que je développe en solo.
-						<br><br>
-						<div class="projectblock">
-							<img class="metroidvaniagif" alt="Metroidvania gif" src="/assets/projects/insurrection/insurrection_gif.gif">
-						</div>
-						<br>
-						<div class="projectblock">
-							<PortfolioPreview project={projects_recent[0]} />
-						</div>
-						<div class="projectblock">
-							<PortfolioPreview project={projects_recent[1]} />
-						</div>
-						<div class="projectblock">
-							<PortfolioPreview project={projects_other[0]} />
-						</div>
-					</p>
-				</div>
-				<div class="section">
-					<p class="description">
-						Je réalise également des prestations de développement sur Unity pour d'autres studios où je partage mon expertise de plus de six ans d'utilisation 
-						quotidienne d'Unity, notamment autour de :
-						<ul>
-							<li class="majorlistelement">Architecture de projet</li>
-							<li class="majorlistelement">Programmation gameplay</li>
-							<li class="majorlistelement">Programmation ui</li>
-							<li class="majorlistelement">Programmation d'outils</li>
-							Exemples :
-							<ul>
-								<li>custom editors d'Unity exploités pour le level design</li>
-								<li>gestion des langages</li>
-							</ul>
-							<li class="majorlistelement">Programmation rendu</li>
-							Exemples :
-							<ul>
-								<li>moteur de rendu 3D</li>
-								<li>shaders</li>
-								<li>génération procédurale de meshes</li>
-							</ul>
-							<li class="majorlistelement">Optimisation</li>
-							Générale, algorithmique, ui, rendu
-							<li class="majorlistelement">Développement mobile (android et iOS)</li>
-							Exemples :
-							<ul>
-								<li>connaissance des stores et des processus de build</li>
-								<li>connaissances des outils de data tracking</li>
-								<li>UI responsives</li>
-								<li>fonctionnalités natives (gyroscope, lampe torche, galerie, ...)</li>
-							</ul>
-							<li class="majorlistelement">Développement d'expériences en réalité augmentée ou réalité virtuelle</li>
-							Mobile (android et iOS), Hololens, Oculus GO.
-						</ul>
-						<div class="projectblock">
-							<PortfolioPreview project={projects_kalank[0]} />
-						</div>
-						<div class="projectblock">
-							<PortfolioPreview project={projects_kalank[2]} />
-						</div>
-					</p>
+		<Nav/>
+		<main>
+			<div class="center_flex full_width">
+				<div class="wrapper">
+					<!--- Main infos (Begin)-->
+					<h2 class="accent">Alice Pinto<br/>@Sekamelica</h2>
+					<h4>French indie gamedev and freelance Unity dev.<br/>
+						Currently working on <span class="accent">Vindica Secrets of Blood</span>.</h4>
+					<SekaAscii/>
+					<!--- Main infos (End) -->
+
+					<!--- News / Latest project (Begin) -->
+					<h4>◇─◇──◇───────────────◇──◇─◇</h4>
+					<h2>Vindica's Steam page<br/>will be available soon!</h2>
+					<h2>↓ ↓ ↓ ↓ ↓</h2>
+
+					<ProjectBlock project={project_vindicasecretsofblood}/>
+					<!--- News / Latest project (End) -->
+					
 				</div>
 			</div>
-			<br><br>
-			<a href="/projects" class="button" style="
-			display: block;
-			margin-left: auto;
-			margin-right: 47.5%;
-			width: 190px;
-			">Voir tous les projets</a>
+			
 		</main>
-		
-		<Footer />
+		<VindicaLogo/>
+		<VindicaIcon/>
+		<Footer/>
 	</body>
 </html>

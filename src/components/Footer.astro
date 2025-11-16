@@ -3,24 +3,107 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-	<a href="/" class="button">🏠 Accueil</a> <a href="/projects" class="button">🎮 Projets</a> <a href="/about" class="button">📝 Biographie</a> <a href="/contact" class="button">📧 Contact</a>
-	<br>
-	<br>
-	&copy; {currentYear} Alice Pinto
-	<small class="byline">🚀 Built by Astro</small>
+
+	<div class="center_block footer-wrapper">
+		<div class="center_flex footer-wrapper-internal">
+			<a class="link" href="#top">Top</a>
+		</div>
+		<div class="center_flex footer-wrapper-internal">
+			<a class="link" href="/">Home</a>
+			<a class="link" href="/projects/">My Games</a>
+			<a class="link" href="/contact/">Contact</a>
+		</div>
+	</div>
+
+	<div class="center_flex small-footer-wrapper">
+		<small class="buildwith">&copy; {currentYear} Alice Pinto</small>
+	</div>
+	
+	<div class="center_flex small-footer-wrapper">
+		<small class="buildwith">🚀 Built with Astro</small>
+	</div>
+
 </footer>
+
 <style>
 	footer {
-		text-align: center;
-		padding-top: 8rem;
-		padding-right: 2rem;
-		padding-bottom: 4rem;
-		padding-left: 2rem;
+		align-items: center;
+		justify-content: center;
+		flex-grow: 1;
+		width: 100%;
+		margin-top: 16px;
+		margin-bottom: 16px;
+		gap: 16px;
+		
+		border-top: 1px solid black;
 	}
 
-	.byline {
+	.footer-wrapper {
+		margin-left: auto;
+		margin-right: auto;
+
+		padding-left: 2rem;
+		padding-right: 2rem;
+
+		margin-top: 2em;
+		margin-bottom: 2em;
+	}
+
+	.footer-wrapper-internal
+	{
+		margin-left: auto;
+		margin-right: auto;
+
+		padding-left: 2rem;
+		padding-right: 2rem;
+
+		margin-top: 2em;
+		margin-bottom: 2em;
+
+		max-width: 50em;
+	}
+
+	.link {
 		display: block;
-		margin-top: 1rem;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		
+		color: var(--c-navlinkcolor);
+
+		width: 28%;
+
+		text-decoration: none;
+		font-size: var(--f-d1);
+		text-transform: uppercase;
+		font-weight: 900;
+		letter-spacing: 0.05rem;
+
+		padding-left: 2%;
+		padding-right: 2%;
+	}
+	
+	.link:hover,
+	.link:focus {
+		color: var(--t-active);
+	}
+
+	.small-footer-wrapper
+	{
+		max-width: 50em;
+
+		margin-left: auto;
+		margin-right: auto;
+
+		padding-left: 2rem;
+		padding-right: 2rem;
+
+		margin-top: 12px;
+		margin-bottom: 12px;
+	}
+
+	.buildwith {
+		display: block;
 		color: var(--t-subdue);
 		font-size: var(--f-d2);
 		text-transform: uppercase;

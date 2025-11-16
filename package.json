@@ -11,6 +11,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.9.0"
+    "@astro-community/astro-embed-youtube": "^0.5.9",
+    "astro": "^5.15.8",
+    "dependencies": "^0.0.1",
+    "desandro-matches-selector": "^2.0.2",
+    "ev-emitter": "^2.1.2",
+    "fizzy-ui-utils": "^3.0.0",
+    "get-size": "^3.0.0",
+    "jquery": "^3.7.1",
+    "outlayer": "^2.1.1"
   }
 }

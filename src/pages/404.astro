@@ -1,22 +1,35 @@
 ---
-import MainHead from '../components/MainHead.astro';
-import Footer from '../components/Footer.astro';
+// Component Imports
+import SHead from '../components/SHead.astro';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="fr">
+<html lang="en" >
 	<head>
-		<MainHead title="Sekamelica Games | Page indisponible" />
-		<style>
-			
-		</style>
+		<SHead title="Page Not Found" description="Page could not be found."/>
 	</head>
 	<body>
-		<Nav />
-		<div class="wrapper">
-			<a class="title">Erreur 404</a>
-			<h3 class="accent">La page demandée n'a pas pu être trouvée.</h3>
-		</div>
-		<Footer />
+		<Nav/>
+		<main>
+			<div class="center_flex full_width">
+				<div class="wrapper">
+
+					<h1>Can't find this page!</h2>
+					<h4>
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀<br>
+⠀⠀⠀⠀⢀⡴⣆⠀⠀⠀⠀⠀⣠⡀⠀⠀⠀⠀⠀⠀⣼⣿⡗⠀⠀⠀⠀<br>
+⠀⠀⠀⣠⠟⠀⠘⠷⠶⠶⠶⠾⠉⢳⡄⠀⠀⠀⠀⠀⣧⣿⠀⠀⠀⠀⠀<br>
+⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣤⣤⣤⣤⣤⣿⢿⣄⠀⠀⠀⠀<br>
+⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⠀⠀⠀⠀⠀⠀⠙⣷⡴⠶⣦<br>
+⠀⠀⢱⡀⠀⠉⠉⠀⠀⠀⠀⠛⠃⠀⢠⡟⠀⠀⠀⢀⣀⣠⣤⠿⠞⠛⠋<br>
+⣠⠾⠋⠙⣶⣤⣤⣤⣤⣤⣀⣠⣤⣾⣿⠴⠶⠚⠋⠉⠁⠀⠀⠀⠀⠀⠀<br>
+⠛⠒⠛⠉⠉⠀⠀⠀⣴⠟⢃⡴⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
+⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
+					</h4>
+				</div>
+			</div>
+		</main>
+		<Footer/>
 	</body>
 </html>

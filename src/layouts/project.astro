@@ -1,8 +1,11 @@
 ---
-import MainHead from '../components/MainHead.astro';
+import SHead from '../components/SHead.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 import type { Project } from '../types';
+import ProjectInfos from '../components/ProjectInfos.astro';
+import VindicaLogo from '../components/extra/VindicaLogo.astro';
+import VindicaIcon from '../components/extra/VindicaIcon.astro';
 
 interface Props {
 	content: Project;
@@ -11,102 +14,102 @@ interface Props {
 const { content } = Astro.props;
 ---
 
-<html lang="fr">
+<html lang="en">
 	<head>
-		<MainHead title={content.title} description={content.shortDescription} />
-		<style>
-			.hero {
-				padding: 8rem;
-				display: flex;
-				background-color: var(--t-fg);
-				background-repeat: no-repeat;
-				background-size: cover;
-				min-height: 25vw;
-				color: white;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-			}
-
-			.tag {
-				margin-left: 0.5em;
-				margin-right: 0.5em;
-				text-transform: uppercase;
-			}
-
-			.tag:nth-of-type(1n) {
-				color: var(--c-green);
-			}
-			.tag:nth-of-type(2n) {
-				color: var(--c-orange);
-			}
-			.tag:nth-of-type(3n) {
-				color: var(--c-blue);
-			}
-			.tag:nth-of-type(4n) {
-				color: var(--c-pink);
-			}
-
-			/*
-			.title {
-				font-size: var(--f-u10);
-				font-weight: 900;
-				text-transform: uppercase;
-				letter-spacing: 0.0625em;
-			}*/
-
-			.leadIn {
-				padding-top: 4em;
-				color: var(--t-bg);
-				background-color: var(--t-fg);
-				text-align: center;
-			}
-
-			.tagline {
-				font-weight: 300;
-				font-size: var(--f-u3);
-				line-height: 1.5;
-			}
-
-			.content {
-				font-size: var(--f-u1);
-				line-height: 2.2;
-				max-width: 50em;
-				margin: auto;
-			}
-
-			.wrapper {
-				padding-bottom: 4em;
-				margin-bottom: 4em;
-			}
-
-			footer {
-				text-align: center;
-				margin-top: 3rem;
-			}
-
-			.bio {
-				width: 80%;
-				margin-right: 20%;
-			}
-
-			.grid {
-				display: grid;
-			}
-		</style>
+		<SHead title={content.title} description={content.shortDescription} />
 	</head>
 	<body>
-		<Nav />
-		<div class="wrapper">
-			<a class="title">{content.title}</a>
-			<h3 class="accent">Par {content.devteam}</h3>
-			<div class="grid">
-				<slot />
+		<Nav/>
+		<div class="center_flex full_width">
+			<div class="wrapper">
+				<h1 class="accent">{content.title}</h1>
+				<ProjectInfos project={Astro.props}/>
+				<slot/>
 			</div>
 		</div>
-		<footer>
-			<a href="/projects" class="button">Voir plus</a>
-		</footer>
-		<Footer />
+		{(content.title == "Vindica Secrets of Blood") &&
+		<VindicaLogo/>
+		<VindicaIcon/>}
+		<Footer/>
 	</body>
 </html>
+<style>
+	.hero {
+		padding: 8rem;
+		display: flex;
+		background-color: var(--t-fg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		min-height: 25vw;
+		color: white;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.tag {
+		margin-left: 0.5em;
+		margin-right: 0.5em;
+		text-transform: uppercase;
+	}
+
+	.tag:nth-of-type(1n) {
+		color: var(--c-green);
+	}
+	.tag:nth-of-type(2n) {
+		color: var(--c-orange);
+	}
+	.tag:nth-of-type(3n) {
+		color: var(--c-blue);
+	}
+	.tag:nth-of-type(4n) {
+		color: var(--c-pink);
+	}
+
+	/*
+	.title {
+		font-size: var(--f-u10);
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.0625em;
+	}*/
+
+	.leadIn {
+		padding-top: 4em;
+		color: var(--t-bg);
+		background-color: var(--t-fg);
+		text-align: center;
+	}
+
+	.tagline {
+		font-weight: 300;
+		font-size: var(--f-u3);
+		line-height: 1.5;
+	}
+
+	.content {
+		font-size: var(--f-u1);
+		line-height: 2.2;
+		max-width: 50em;
+		margin: auto;
+	}
+
+	.wrapper {
+		padding-bottom: 4em;
+		margin-bottom: 4em;
+	}
+
+	footer {
+		text-align: center;
+		margin-top: 3rem;
+	}
+
+	.bio {
+		width: 80%;
+		margin-right: 20%;
+	}
+
+	.grid {
+		display: grid;
+	}
+</style>

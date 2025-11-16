@@ -1,83 +1,115 @@
 ---
-import CustomCursor from "./CustomCursor.astro";
----
 
+---
 <nav>
-	<a class="link" href="/">
-		<div class="monogram">Sekamelica<br>Games</div>
-	</a>
-	<a class="link" href="/">Accueil</a>
-	<a class="link" href="/projects/">Projets</a>
-	<a class="link" href="/about/">Biographie</a>
-	<a class="link" href="/contact/">Contact</a>
-	<!--<a class="siteconstructionwarning">⚠️ Site en cours de création ⚠️</a>-->
-	<div class="socials">
-		<a class="social" href="https://sekamelica.itch.io/">
-			<img src="/assets/nav/icons_png/itch.png" width="32" height="32"/>
+	<!-- LOGO -->
+	<div class="nav-wrapper">
+		<a class="link-monogram" href="/">
+			<div class="monogram">Sekamelica<br>Games</div>
 		</a>
-		<a class="social" href="https://www.linkedin.com/in/alice--pinto/">
-			<img src="/assets/nav/icons_png/linkedin.png" width="32" height="32"/>
+	</div>
+	<!--- PAGE LINKS -->
+	<div class="nav-wrapper center_flex">
+		<a class="link" href="/">Home</a>
+		<a class="link" href="/projects/">My Games</a>
+		<a class="link" href="/contact/">Contact</a>
+	</div>
+	<!--- SOCIAL MEDIAS LINKS (ICONS) -->
+	<div class="nav-wrapper">
+		<a class="social" href="https://store.steampowered.com/developer/sekamelicagames">
+			<img src="/assets/nav/icons_png/nav_icon_steam.png" width="32" height="32"/>
+		</a>
+		<a class="social" href="https://sekamelica.itch.io/">
+			<img src="/assets/nav/icons_png/nav_icon_itchio.png" width="32" height="32"/>
 		</a>
 		<a class="social" href="https://twitter.com/sekamelicagames">
-			<img src="/assets/nav/icons_png/twitter.png" width="32" height="32"/>
+			<img src="/assets/nav/icons_png/nav_icon_twitter.png" width="32" height="32"/>
 		</a>
-		<!--<a class="social" href="https://github.com/Sekamelica">
-			<img src="/assets/nav/icons_png/github.png" width="32" height="32"/>
-		</a>-->
+		<a class="social" href="https://bsky.app/profile/sekamelica.bsky.social">
+			<img src="/assets/nav/icons_png/nav_icon_bluesky.png" width="32" height="32"/>
+		</a>
+		<a class="social" href="https://mastodon.gamedev.place/@sekamelica">
+			<img src="/assets/nav/icons_png/nav_icon_mastodon.png" width="32" height="32"/>
+		</a>
 	</div>
 </nav>
-<CustomCursor></CustomCursor>
 
+<!--
+CUTE NEKO CUSTOM CURSOR!!!
+Code and base image from "https://github.com/adryd325/oneko.js".
+oneko.gif recolored by me!
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⡴⣆⠀ZZZ⠀⣠⡀⠀⠀⠀⠀⠀⠀⣼⣿⡗⠀⠀⠀⠀
+⠀⠀⠀⣠⠟⠀⠘⠷⠶⠶⠶⠾⠉⢳⡄⠀⠀⠀⠀⠀⣧⣿⠀⠀⠀⠀⠀
+⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣤⣤⣤⣤⣤⣿⢿⣄⠀⠀⠀⠀
+⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⠀⠀⠀⠀⠀⠀⠙⣷⡴⠶⣦
+⠀⠀⢱⡀⠀⠉⠉⠀⠀⠀⠀⠛⠃⠀⢠⡟⠀⠀⠀⢀⣀⣠⣤⠿⠞⠛⠋
+⣠⠾⠋⠙⣶⣤⣤⣤⣤⣤⣀⣠⣤⣾⣿⠴⠶⠚⠋⠉⠁⠀⠀⠀⠀⠀⠀
+⠛⠒⠛⠉⠉⠀⠀⠀⣴⠟⢃⡴⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+-->
+<script src="./extra/CustomCursorOneko.js"></script>
+
+<!-- °❀⋆.ೃ࿔*:･⋆˚✿˖° -->
 <style>
 	nav {
-		display: flex;
-		gap: 1rem;
 		align-items: center;
-		padding: 1rem;
-		/*background-color: var(--c-navbackgroundcolor);*/
+		justify-content: center;
+		flex-grow: 1;
 		width: 100%;
+		margin-top: 16px;
+		margin-bottom: 16px;
+		gap: 16px;
 		border-bottom: 1px solid black;
 	}
 
-	.siteconstructionwarning
-	{
-		font-size: var(--f-u1);
-		text-transform: uppercase;
-		text-align: center;
-		color: var(--c-sekared);
-		font-weight: 900;
-		letter-spacing: 5px;
+	.nav-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-grow: 1;
+		max-width: 50em;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		margin-top: 2em;
+		margin-bottom: 2em;
 	}
 
 	.link {
-		color: var(--c-navlinkcolor);
 		display: block;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		
+		color: var(--c-navlinkcolor);
+
+		width: 28%;
+
 		text-decoration: none;
-		font-size: var(--f-d3);
+		font-size: var(--f-d1);
 		text-transform: uppercase;
-		padding-top: 0.75em;
-		padding-bottom: 0.75em;
 		font-weight: 900;
 		letter-spacing: 0.05rem;
-		margin-right: 0.5rem;
+
+		padding-left: 2%;
+		padding-right: 2%;
+	}
+
+	.linkvsob {
+		width: 50%;
+		color: red;
+	}
+
+	.linkvsob:hover, .linkvsob:focus {
+		color: var(--t-active);
 	}
 
 	/* pc */
 	@media (min-width: 600px)
 	{
-		.link 
-		{
-			color: var(--c-navlinkcolor);
-			display: block;
-			text-decoration: none;
-			font-size: var(--f-d1);
-			text-transform: uppercase;
-			padding-top: 0.75em;
-			padding-bottom: 0.75em;
-			font-weight: 900;
-			letter-spacing: 0.05rem;
-			margin-right: 0.5rem;
-		}
+
 	}
 	
 	.link:hover,
@@ -85,36 +117,67 @@ import CustomCursor from "./CustomCursor.astro";
 		color: var(--t-active);
 	}
 
+	.link-monogram {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		
+		color: var(--c-navlinkcolor);
+
+		width: 7.5em;
+		height: 3.5em;
+
+		text-decoration: none;
+		font-size: var(--f-d1);
+		text-transform: uppercase;
+		font-weight: 900;
+		letter-spacing: 0.05rem;
+
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+
 	.monogram {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 6em;
-		height: 2.5em;
-		margin-right: 0.5rem;
+		text-align: center;
+
+		width: 100%;
+		height: 100%;
+
 		color: var(--c-black);
 		font-weight: 900;
 		letter-spacing: -0.05rem;
-		text-align: center;
+
 		border: 3px solid var(--c-sekared);
-		padding: 2px;
 		border-radius: 00%;
 	}
 
 	.socials {
-		align-items: right;
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		gap: 0.75em;
-		margin-left: auto;
-		margin-right: 2rem;
+		margin-left: 2em;
+		margin-right: 2em;
 	}
 
 	.social {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 2em;
+		padding-left: 1em;
+		padding-right: 1em;
 	}
 
 	.socialIcon {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		/*width: 1.25rem;*/
 		/*height: 1.25rem;*/
 		/*fill: var(--c-navlinkcolor);*/

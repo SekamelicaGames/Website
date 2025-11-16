@@ -1,70 +1,90 @@
 ---
-import MainHead from '../components/MainHead.astro';
-import Footer from '../components/Footer.astro';
+// Component Imports
+import SHead from '../components/SHead.astro';
 import Nav from '../components/Nav.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import type { Project } from '../types';
+import Footer from '../components/Footer.astro';
 
-const projects = (await Astro.glob<Project>('./project/**/*.md'))
-	.filter(({ frontmatter }) => !!frontmatter.categoryId);
-const projects_recent = projects.filter(({ frontmatter }) => frontmatter.categoryId == 1).sort(
-		(a, b) =>
-		a.frontmatter.orderId - b.frontmatter.orderId
-	);
-const projects_kalank = projects.filter(({ frontmatter }) => frontmatter.categoryId == 2).sort(
-	(a, b) =>
-	a.frontmatter.orderId - b.frontmatter.orderId
-);
-const projects_enjmin = projects.filter(({ frontmatter }) => frontmatter.categoryId == 3).sort(
-	(a, b) =>
-	a.frontmatter.orderId - b.frontmatter.orderId
-);
-const projects_other = projects.filter(({ frontmatter }) => frontmatter.categoryId == 4).sort(
-	(a, b) =>
-	a.frontmatter.orderId - b.frontmatter.orderId
-);
+import { type MarkdownInstance } from 'astro';
+import type { Project } from '../types';
+import ProjectCategory from '../components/ProjectCategory.astro';
+import ProjectBlock from '../components/ProjectBlock.astro';
+
+const projects = (await Astro.glob<Project>('./projects/**/*.md'));
+// Games
+const project_vindicasecretsofblood = projects.find(({frontmatter})=>{ return frontmatter.title == "Vindica Secrets of Blood"}) as MarkdownInstance<Project>;
+const project_fragments = projects.find(({frontmatter})=>{ return frontmatter.title == "Fragments"}) as MarkdownInstance<Project>;
+	const project_sluglife = projects.find(({frontmatter})=>{ return frontmatter.title == "Slug Life"}) as MarkdownInstance<Project>;
+// Jam Games
+const project_uncarnation = projects.find(({frontmatter})=>{ return frontmatter.title == "Uncarnation"}) as MarkdownInstance<Project>;
+const project_mercure = projects.find(({frontmatter})=>{ return frontmatter.title == "Mercure"}) as MarkdownInstance<Project>;
+const project_reaktor = projects.find(({frontmatter})=>{ return frontmatter.title == "REAKTOR"}) as MarkdownInstance<Project>;
+const project_flapi = projects.find(({frontmatter})=>{ return frontmatter.title == "Flapi"}) as MarkdownInstance<Project>;
+// Experimentations
+const project_2717 = projects.find(({frontmatter})=>{ return frontmatter.title == "27 17"}) as MarkdownInstance<Project>;
+// Conferences?
+// Tools
+const project_sekamengine = projects.find(({frontmatter})=>{ return frontmatter.title == "Sekam Engine"}) as MarkdownInstance<Project>;
+// Games (as Freelancer)
+const project_baladins = projects.find(({frontmatter})=>{ return frontmatter.title == "Baladins"}) as MarkdownInstance<Project>;
+const project_bloomoutofthesnow = projects.find(({frontmatter})=>{ return frontmatter.title == "Bloom out of the Snow"}) as MarkdownInstance<Project>;
+// Games (as Employee)
+const project_hellotokotoko = projects.find(({frontmatter})=>{ return frontmatter.title == "Hello Tokotoko!"}) as MarkdownInstance<Project>;
+const project_tokotoko = projects.find(({frontmatter})=>{ return frontmatter.title == "Tokotoko"}) as MarkdownInstance<Project>;
+const project_miraculous = projects.find(({frontmatter})=>{ return frontmatter.title == "Miraculous: Rise of the Sphinx"}) as MarkdownInstance<Project>;
+// Student Games
+const project_shadowsofasunlessworld = projects.find(({frontmatter})=>{ return frontmatter.title == "Shadows of a Sunless World"}) as MarkdownInstance<Project>;
+const project_ceuxquirestent = projects.find(({frontmatter})=>{ return frontmatter.title == "Ceux qui Restent"}) as MarkdownInstance<Project>;
 ---
 
-<html lang="fr">
+<html lang="en" >
 	<head>
-		<MainHead
-			title="Sekamelica Games | Projets"
-			description="Les projets de Sekamelica Games"
-		/>
-		<style>
-			.grid {
-				display: grid;
-				grid-gap: 0.5rem;
-				margin-left: 10%;
-				margin-right: 10%;
-				margin-bottom: 100px;
-			}
-		</style>
+		<SHead title="Sekamelica Games | My Games" description="Games made by Sekamelica"/>
 	</head>
 	<body>
-		<Nav />
-		<div class="wrapper">
-			<a class="title">Projets</a>
-			<h3 class="accent">Mes projets récents</h3>
-			<div class="grid">
-				{projects_recent.map((project) => <PortfolioPreview project={project} />)}
-			</div>
+		<Nav/>
+		<main>
+			<div class="center_flex full_width">
+				<div class="wrapper">
 
-			<h3 class="accent">Jeux réalisés à Kalank</h3>
-			<div class="grid">
-				{projects_kalank.map((project) => <PortfolioPreview project={project} />)}
-			</div>
+					<ProjectCategory title="Games"/>
 
-			<h3 class="accent">Jeux réalisés à l'ENJMIN</h3>
-			<div class="grid">
-				{projects_enjmin.map((project) => <PortfolioPreview project={project} />)}
-			</div>
+					<ProjectBlock project={project_vindicasecretsofblood}/>
+					<ProjectBlock project={project_sluglife}/>
+					<ProjectBlock project={project_fragments}/>
 
-			<h3 class="accent">Mes autres jeux</h3>
-			<div class="grid">
-				{projects_other.map((project) => <PortfolioPreview project={project} />)}
+					<ProjectCategory title="Jam Games"/>
+
+					<ProjectBlock project={project_uncarnation}/>
+					<ProjectBlock project={project_mercure}/>
+					<ProjectBlock project={project_reaktor}/>
+					<ProjectBlock project={project_flapi}/>
+
+					<ProjectCategory title="Experimentations"/>
+
+					<ProjectBlock project={project_2717}/>
+
+					<ProjectCategory title="Tools"/>
+
+					<ProjectBlock project={project_sekamengine}/>
+
+					<ProjectCategory title="Games from other Studios (freelancer)"/>
+
+					<ProjectBlock project={project_baladins}/>
+					<ProjectBlock project={project_bloomoutofthesnow}/>
+
+					<ProjectCategory title="Games from other Studios (employee)"/>
+
+					<ProjectBlock project={project_miraculous}/>
+					<ProjectBlock project={project_hellotokotoko}/>
+					<ProjectBlock project={project_tokotoko}/>
+
+					<ProjectCategory title="Student Games"/>
+
+					<ProjectBlock project={project_shadowsofasunlessworld}/>
+					<ProjectBlock project={project_ceuxquirestent}/>
+				</div>
 			</div>
-		</div>
-		<Footer />
+		</main>
+		<Footer/>
 	</body>
 </html>
