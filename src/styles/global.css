@@ -210,10 +210,18 @@ h2
 	text-align: center;
 	flex-grow: 1;
 
-	max-width: 50em;
+	width: 100%;
+	max-width: 90%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
 
-	padding-left: 2rem;
-	padding-right: 2rem;
+@media (min-width: 616px) { /* for larger screens like desktop */
+  .wrapper{
+    max-width: 616px;
+	padding-left: default;
+	padding-right: default;
+  }
 }
 
 .title {
