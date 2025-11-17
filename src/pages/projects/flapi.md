@@ -6,7 +6,7 @@ banner: '/assets/projects/flapi/banner.png'
 bannerStyle: 'project-media-box-accent bannerstyle-default'
 genre: Language puzzle game
 status: Released (2018)
-platforms: Steam, Playstation, XBOX, Switch
+platforms: itch.io
 engine: Unity
 shortDescription: |
   You plays as an AI, having to try your best to learn from humans to be able to express yourself and communicate with them.
