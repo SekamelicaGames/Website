@@ -2,6 +2,7 @@
 layout: ../../layouts/project.astro
 title: Baladins
 devteam: Seed by Seed
+publisher: Armor Games Studios
 banner: '/assets/projects/baladins/banner.png'
 bannerStyle: 'project-media-box-accent bannerstyle-default'
 genre: Tabletop-inspired co-op fantasy RPG
